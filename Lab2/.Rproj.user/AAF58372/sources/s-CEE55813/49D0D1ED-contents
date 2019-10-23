@@ -1,0 +1,9 @@
+library(tidyverse)
+# create a new variable called DRG
+drg.data <- read.csv("DRG_data.csv") %>%
+  group_by(DRG.Definition) %>%
+  mutate(DRG = strsplit(as.character(DRG.Definiton),
+                        split = ' ')[[1]][1]) %>%
+  ungroup()
+
+# 
